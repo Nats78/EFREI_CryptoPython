@@ -1,5 +1,6 @@
 from cryptography.fernet import Fernet
 from flask import Flask, render_template_string, render_template, jsonify, request
+
 import sqlite3
 
 app = Flask(__name__)
@@ -29,6 +30,20 @@ def decryptage():
         token_bytes = token.encode()  # Convertir le token en bytes
         decrypted_value = f.decrypt(token_bytes).decode()  # Décrypter et décoder en str
         return jsonify({'decrypted_value': decrypted_value})  # Retourne la valeur décryptée
+    except Exception as e:
+        return jsonify({'error': 'Token invalide ou erreur de décryptage.'}), 400
+
+# Route spécifique pour décrypter la date de naissance 01/12/2003
+@app.route('/decrypt_date_naissance')
+def decrypt_date_naissance():
+    token = request.args.get('token')
+    try:
+        token_bytes = token.encode()  # Convertir le token en bytes
+        decrypted_value = f.decrypt(token_bytes).decode()  # Décrypter et décoder en str
+        if decrypted_value == "01/12/2003":
+            return jsonify({'decrypted_value': decrypted_value})  # Retourne la valeur décryptée
+        else:
+            return jsonify({'error': 'Date de naissance incorrecte.'}), 400
     except Exception as e:
         return jsonify({'error': 'Token invalide ou erreur de décryptage.'}), 400
 
