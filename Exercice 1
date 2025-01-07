@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,7 +6,30 @@
     <title>Ma Première Page HTML</title>
 </head>
 <body>
+    <!-- Titrage principal -->
     <h1>Bienvenue sur ma première page HTML</h1>
     <h2>Voici un sous-titre pour illustrer l'exemple</h2>
+
+    <!-- Texte en gras, italique et souligné -->
+    <p><b>Ceci est un texte en <i>italique</i> et <u>souligné</u>.</b></p>
+
+    <!-- Lien vers une autre page -->
+    <p><a href="actualite.html">Cliquez ici pour voir l'actualité</a></p>
+
+    <!-- Lien vers une adresse électronique -->
+    <p><a href="mailto:exemple@mail.com">Envoyez-moi un e-mail</a></p>
+
+    <!-- Liste combinée -->
+    <h3>Liste combinée :</h3>
+    <ul>
+        <li>Point 1</li>
+        <li>Point 2
+            <ol>
+                <li>Sous-point 1</li>
+                <li>Sous-point 2</li>
+            </ol>
+        </li>
+        <li>Point 3</li>
+    </ul>
 </body>
 </html>
