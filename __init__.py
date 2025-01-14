@@ -5,10 +5,10 @@ import sqlite3
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/Valet_de_Trèfle.SVG')
 def hello_world():
     return render_template('Valet_de_Trèfle.SVG')
-@app.route('/')
+@app.route('/Exemple_Base_SVG')
 def Exemple_Base_SVG():
     return render_template('Exemple_Base_SVG.html')
     
