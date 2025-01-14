@@ -8,7 +8,10 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     return render_template('Valet_de_Trèfle.SVG')
-
+@app.route('/')
+def Exemple_Base_SVG():
+    return render_template('Exemple_Base_SVG.html')
+    
 # Génération de la clé pour le chiffrement/déchiffrement
 key = Fernet.generate_key()
 f = Fernet(key)
