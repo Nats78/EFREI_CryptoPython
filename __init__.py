@@ -8,9 +8,11 @@ app = Flask(__name__)
 @app.route('/Valet_de_Trèfle.SVG')
 def hello_world():
     return render_template('Valet_de_Trèfle.SVG')
+    
 @app.route('/Exemple_Base_SVG')
 def Exemple_Base_SVG():
     return render_template('Exemple_Base_SVG.html')
+    
 @app.route('/chenille')
 def chenille():
     return render_template('chenille.html')
