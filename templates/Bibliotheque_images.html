@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function affichage() {
+            alert("Tout est OK !");
+        }
+        function cacher() {
+            document.getElementById('DuTexte').style.display = "none";
+        }
+        function presenter() {
+            document.getElementById('DuTexte').style.display = "block";
+        }
+        function controler() {
+            if (document.getElementById('Control').checked) {
+                alert("Bouton option coché");
+            } else {
+                alert("Bouton option NON coché");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Mes outils</h1>
+    <hr />
+    <h2>Boîte de dialogue</h2>
+    <button onclick="affichage()">Afficher</button>
+    <hr />
+    <p id="DuTexte">Ma phrase de texte</p>
+    <button onclick="presenter()">Présenter</button>
+    <button onclick="cacher()">Cacher</button>
+    <hr />
+    <p>Option<input type="checkbox" id="Control"></p>
+    <button onclick="controler()">Check</button>
+    <hr />
+    <h2>Mes images</h2>
+    <img src="image1.jpg" alt="Image 1" style="width:200px; height:auto;">
+    <img src="image2.jpg" alt="Image 2" style="width:200px; height:auto;">
+    <img src="image3.jpg" alt="Image 3" style="width:200px; height:auto;">
+</body>
+</html>
