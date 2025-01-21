@@ -15,102 +15,68 @@
             display: inline-block;
         }
 
-        #roll-button {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #roll-button:hover {
-            background-color: #45a049;
-        }
-
-        #dice {
-            margin-bottom: 20px;
+        svg {
+            margin: 10px;
         }
 
         .dot {
-            display: none;
             fill: black;
         }
     </style>
 </head>
 <body>
     <div id="dice-container">
-        <svg id="dice" width="100" height="100" viewBox="0 0 100 100">
+        <!-- Face 1 -->
+        <svg width="100" height="100" viewBox="0 0 100 100">
             <rect x="0" y="0" width="100" height="100" fill="white" stroke="black" stroke-width="2" />
-            <circle class="dot" cx="50" cy="50" r="10" /> <!-- 1 -->
-            <circle class="dot" cx="25" cy="25" r="10" /> <!-- 2 -->
-            <circle class="dot" cx="75" cy="25" r="10" /> <!-- 3 -->
-            <circle class="dot" cx="25" cy="75" r="10" /> <!-- 4 -->
-            <circle class="dot" cx="75" cy="75" r="10" /> <!-- 5 -->
-            <circle class="dot" cx="50" cy="25" r="10" /> <!-- 6 -->
+            <circle class="dot" cx="50" cy="50" r="10" />
         </svg>
-        <button id="roll-button">Lancer le dé</button>
-        <p id="result">Résultat : 1</p>
+
+        <!-- Face 2 -->
+        <svg width="100" height="100" viewBox="0 0 100 100">
+            <rect x="0" y="0" width="100" height="100" fill="white" stroke="black" stroke-width="2" />
+            <circle class="dot" cx="25" cy="25" r="10" />
+            <circle class="dot" cx="75" cy="75" r="10" />
+        </svg>
+
+        <!-- Face 3 -->
+        <svg width="100" height="100" viewBox="0 0 100 100">
+            <rect x="0" y="0" width="100" height="100" fill="white" stroke="black" stroke-width="2" />
+            <circle class="dot" cx="25" cy="25" r="10" />
+            <circle class="dot" cx="50" cy="50" r="10" />
+            <circle class="dot" cx="75" cy="75" r="10" />
+        </svg>
+
+        <!-- Face 4 -->
+        <svg width="100" height="100" viewBox="0 0 100 100">
+            <rect x="0" y="0" width="100" height="100" fill="white" stroke="black" stroke-width="2" />
+            <circle class="dot" cx="25" cy="25" r="10" />
+            <circle class="dot" cx="25" cy="75" r="10" />
+            <circle class="dot" cx="75" cy="25" r="10" />
+            <circle class="dot" cx="75" cy="75" r="10" />
+        </svg>
+
+        <!-- Face 5 -->
+        <svg width="100" height="100" viewBox="0 0 100 100">
+            <rect x="0" y="0" width="100" height="100" fill="white" stroke="black" stroke-width="2" />
+            <circle class="dot" cx="25" cy="25" r="10" />
+            <circle class="dot" cx="25" cy="75" r="10" />
+            <circle class="dot" cx="75" cy="25" r="10" />
+            <circle class="dot" cx="75" cy="75" r="10" />
+            <circle class="dot" cx="50" cy="50" r="10" />
+        </svg>
+
+        <!-- Face 6 -->
+        <svg width="100" height="100" viewBox="0 0 100 100">
+            <rect x="0" y="0" width="100" height="100" fill="white" stroke="black" stroke-width="2" />
+            <circle class="dot" cx="25" cy="25" r="10" />
+            <circle class="dot" cx="25" cy="50" r="10" />
+            <circle class="dot" cx="25" cy="75" r="10" />
+            <circle class="dot" cx="75" cy="25" r="10" />
+            <circle class="dot" cx="75" cy="50" r="10" />
+            <circle class="dot" cx="75" cy="75" r="10" />
+        </svg>
     </div>
-
-    <script>
-        document.getElementById('roll-button').addEventListener('click', rollDice);
-
-        function rollDice() {
-            const result = Math.floor(Math.random() * 6) + 1; // Génère un nombre entre 1 et 6
-            displayResult(result);
-        }
-
-        function displayResult(result) {
-            const svg = document.getElementById('dice');
-            const circles = svg.getElementsByClassName('dot');
-            
-            // Réinitialiser les cercles
-            for (let i = 0; i < circles.length; i++) {
-                circles[i].style.display = 'none';
-            }
-
-            // Afficher les cercles en fonction du résultat du dé
-            switch(result) {
-                case 1:
-                    circles[0].style.display = 'block'; // Afficher le cercle central
-                    break;
-                case 2:
-                    circles[0].style.display = 'block';
-                    circles[1].style.display = 'block';
-                    break;
-                case 3:
-                    circles[0].style.display = 'block';
-                    circles[1].style.display = 'block';
-                    circles[2].style.display = 'block';
-                    break;
-                case 4:
-                    circles[0].style.display = 'block';
-                    circles[1].style.display = 'block';
-                    circles[2].style.display = 'block';
-                    circles[3].style.display = 'block';
-                    break;
-                case 5:
-                    circles[0].style.display = 'block';
-                    circles[1].style.display = 'block';
-                    circles[2].style.display = 'block';
-                    circles[3].style.display = 'block';
-                    circles[4].style.display = 'block';
-                    break;
-                case 6:
-                    circles[0].style.display = 'block';
-                    circles[1].style.display = 'block';
-                    circles[2].style.display = 'block';
-                    circles[3].style.display = 'block';
-                    circles[4].style.display = 'block';
-                    circles[5].style.display = 'block';
-                    break;
-            }
-
-            document.getElementById('result').textContent = `Résultat : ${result}`;
-        }
-    </script>
 </body>
 </html>
 
