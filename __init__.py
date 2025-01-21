@@ -20,6 +20,10 @@ def Chenille():
 @app.route('/Jeu_des_solutions')
 def jeu_des_solutions():
     return render_template('Jeu_des_solutions.html')
+
+@app.route('/Bibliotheque_images')
+def Bibliotheque_images():
+    return render_template('Bibliotheque_images.html')
     
 # Génération de la clé pour le chiffrement/déchiffrement
 key = Fernet.generate_key()
