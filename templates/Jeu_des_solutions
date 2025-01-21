@@ -1,1 +1,113 @@
+<html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de Dés</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
 
+        #dice-container {
+            display: inline-block;
+        }
+
+        #roll-button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #roll-button:hover {
+            background-color: #45a049;
+        }
+
+        #dice {
+            margin-bottom: 20px;
+        }
+
+        .dot {
+            display: none;
+            fill: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="dice-container">
+        <svg id="dice" width="100" height="100" viewBox="0 0 100 100">
+            <rect x="0" y="0" width="100" height="100" fill="white" stroke="black" stroke-width="2" />
+            <circle class="dot" cx="50" cy="50" r="10" />
+            <circle class="dot" cx="25" cy="25" r="10" />
+            <circle class="dot" cx="75" cy="25" r="10" />
+            <circle class="dot" cx="25" cy="75" r="10" />
+            <circle class="dot" cx="75" cy="75" r="10" />
+            <circle class="dot" cx="50" cy="25" r="10" />
+        </svg>
+        <button id="roll-button">Lancer le dé</button>
+        <p id="result">Résultat : 1</p>
+    </div>
+
+    <script>
+        document.getElementById('roll-button').addEventListener('click', rollDice);
+
+        function rollDice() {
+            const result = Math.floor(Math.random() * 6) + 1;
+            displayResult(result);
+        }
+
+        function displayResult(result) {
+            const svg = document.getElementById('dice');
+            const circles = svg.getElementsByClassName('dot');
+            
+            for (let i = 0; i < circles.length; i++) {
+                circles[i].style.display = 'none';
+            }
+
+            switch(result) {
+                case 1:
+                    circles[0].style.display = 'block';
+                    break;
+                case 2:
+                    circles[0].style.display = 'block';
+                    circles[1].style.display = 'block';
+                    break;
+                case 3:
+                    circles[0].style.display = 'block';
+                    circles[1].style.display = 'block';
+                    circles[2].style.display = 'block';
+                    break;
+                case 4:
+                    circles[0].style.display = 'block';
+                    circles[1].style.display = 'block';
+                    circles[2].style.display = 'block';
+                    circles[3].style.display = 'block';
+                    break;
+                case 5:
+                    circles[0].style.display = 'block';
+                    circles[1].style.display = 'block';
+                    circles[2].style.display = 'block';
+                    circles[3].style.display = 'block';
+                    circles[4].style.display = 'block';
+                    break;
+                case 6:
+                    circles[0].style.display = 'block';
+                    circles[1].style.display = 'block';
+                    circles[2].style.display = 'block';
+                    circles[3].style.display = 'block';
+                    circles[4].style.display = 'block';
+                    circles[5].style.display = 'block';
+                    break;
+            }
+
+            document.getElementById('result').textContent = `Résultat : ${result}`;
+        }
+    </script>
+</body>
+</html>
