@@ -16,6 +16,10 @@ def Exemple_Base_SVG():
 @app.route('/Chenille')
 def Chenille():
     return render_template('Chenille.html')
+
+@app.route('/Jeu_de_solutions')
+def jeu_de_solutions():
+    return render_template('jeu_de_solutions')
     
 # Génération de la clé pour le chiffrement/déchiffrement
 key = Fernet.generate_key()
