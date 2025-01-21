@@ -1,44 +1,38 @@
+<!DOCTYPE html>
 <html>
 <head>
-<script>
-
-function image1(){
-	if(document.getElementById('1').checked){
-	document.getElementById('img1').style.display="Block";
-	}
-	else document.getElementById('img1').style.display="None";
-}
-function image2(){
-	if(document.getElementById('2').checked){
-	document.getElementById('img2').style.display="Block";
-	}
-	else document.getElementById('img2').style.display="None";
-}
-
-function image3(){
-	if(document.getElementById('3').checked){
-	document.getElementById('img3').style.display="Block";
-	}
-	else document.getElementById('img3').style.display="None";
-}
-
-</script>
+    <title>Mes outils pour images</title>
+    <script>
+        // Fonction pour afficher/masquer une image en fonction de l'ID
+        function toggleImage(imageId, checkboxId) {
+            const checkbox = document.getElementById(checkboxId);
+            const image = document.getElementById(imageId);
+            
+            if (checkbox.checked) {
+                image.style.display = "block";
+            } else {
+                image.style.display = "none";
+            }
+        }
+    </script>
 </head>
 <body>
-<h3>Images à afficher :</h3>
-<p>Image 1<input onclick="image1()" type="checkbox" id="1"></p>
-<p>Image 2<input onclick="image2()" type="checkbox" id="2"></p>
-<p>Image 3<input onclick="image3()" type="checkbox" id="3"></p>
-<hr/>
+    <h1>Mes outils pour images</h1>
+    <hr/>
 
-<img src="{{ url_for('static', filename='images/imagechien.jpg') }}" alt="Logo">
-<img src="{{ url_for('static', filename='images/imagechat.jpg') }}" alt="Logo">
-<img src="{{ url_for('static', filename='images/imageloup.jpg') }}" alt="Logo">
+    <h2>Image 1</h2>
+    <img id="image1" src="/static/images/imagechien.jpg" alt="Logo" style="display:none;">
+    <p>Image 1 <input onclick="toggleImage('image1', 'checkbox1')" type="checkbox" id="checkbox1"></p>
+    <hr/>
 
-<script>
-document.getElementById('img1').style.display="None";
-document.getElementById('img2').style.display="None";
-document.getElementById('img3').style.display="None";
-</script>
+    <h2>Image 2</h2>
+    <img id="image2" src="/static/images/imagechat.jpg" alt="Logo" style="display:none;">
+    <p>Image 2 <input onclick="toggleImage('image2', 'checkbox2')" type="checkbox" id="checkbox2"></p>
+    <hr/>
+
+    <h2>Image 3</h2>
+    <img id="image3" src="/static/images/imageloup.jpg" alt="Logo" style="display:none;">
+    <p>Image 3 <input onclick="toggleImage('image3', 'checkbox3')" type="checkbox" id="checkbox3"></p>
+    <hr/>
 </body>
 </html>
