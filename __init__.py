@@ -19,7 +19,7 @@ def Chenille():
 
 @app.route('/Jeu_des_solutions')
 def jeu_des_solutions():
-    return render_template('jeu_des_solutions')
+    return render_template('jeu_des_solutions.html)
     
 # Génération de la clé pour le chiffrement/déchiffrement
 key = Fernet.generate_key()
