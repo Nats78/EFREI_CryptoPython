@@ -1,41 +1,44 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <script>
-        function affichage() {
-            alert("Tout est OK !");
-        }
-        function cacher() {
-            document.getElementById('DuTexte').style.display = "none";
-        }
-        function presenter() {
-            document.getElementById('DuTexte').style.display = "block";
-        }
-        function controler() {
-            if (document.getElementById('Control').checked) {
-                alert("Bouton option coché");
-            } else {
-                alert("Bouton option NON coché");
-            }
-        }
-    </script>
+<script>
+
+function image1(){
+	if(document.getElementById('1').checked){
+	document.getElementById('img1').style.display="Block";
+	}
+	else document.getElementById('img1').style.display="None";
+}
+function image2(){
+	if(document.getElementById('2').checked){
+	document.getElementById('img2').style.display="Block";
+	}
+	else document.getElementById('img2').style.display="None";
+}
+
+function image3(){
+	if(document.getElementById('3').checked){
+	document.getElementById('img3').style.display="Block";
+	}
+	else document.getElementById('img3').style.display="None";
+}
+
+</script>
 </head>
 <body>
-    <h1>Mes outils</h1>
-    <hr />
-    <h2>Boîte de dialogue</h2>
-    <button onclick="affichage()">Afficher</button>
-    <hr />
-    <p id="DuTexte">Ma phrase de texte</p>
-    <button onclick="presenter()">Présenter</button>
-    <button onclick="cacher()">Cacher</button>
-    <hr />
-    <p>Option<input type="checkbox" id="Control"></p>
-    <button onclick="controler()">Check</button>
-    <hr />
-    <h2>Mes images</h2>
-    <img src="image chat.jpg" alt="Image 1" style="width:200px; height:auto;">
-    <img src="image chien.jpg" alt="Image 2" style="width:200px; height:auto;">
-    <img src="image loup.jpg" alt="Image 3" style="width:200px; height:auto;">
+<h3>Images à afficher :</h3>
+<p>Image 1<input onclick="image1()" type="checkbox" id="1"></p>
+<p>Image 2<input onclick="image2()" type="checkbox" id="2"></p>
+<p>Image 3<input onclick="image3()" type="checkbox" id="3"></p>
+<hr/>
+
+<img id="img1" src="/static/images/image chat.jpg" alt="Logo">
+<img id="img2" src="/static/images/image chien.jpg" alt="Logo">
+<img id="img3" src="/static/images/image loup.jpg" alt="Logo">
+	
+<script>
+document.getElementById('img1').style.display="None";
+document.getElementById('img2').style.display="None";
+document.getElementById('img3').style.display="None";
+</script>
 </body>
 </html>
