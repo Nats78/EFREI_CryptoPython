@@ -1,25 +1,57 @@
-<!DOCTYPE html>
-<html>
+</html>
 <head>
 <script>
-function identifierChambre(numero) {
-    alert("Vous avez cliqué sur la chambre numéro " + numero);
+function lancer(){
+           alert("Lancer le barillet");
 }
+
+function trou1(){
+          alert("Vous avez sélectionné la chambre N°1");
+  document.getElementById("Br1").style.fill="red";
+}
+
+function trou2(){
+          alert("Vous avez sélectionné la chambre N°2");
+}
+
+function trou3(){
+          alert("Vous avez sélectionné la chambre N°3");
+}
+
+
+function trou4(){
+          alert("Vous avez sélectionné la chambre N°4");
+}
+
+function trou5(){
+          alert("Vous avez sélectionné la chambre N°5");
+}
+
+function trou6(){
+          alert("Vous avez sélectionné la chambre N°6");
+}
+
+
 </script>
+
+
+
 </head>
 <body>
 <h1>Roulette Russe</h1>
 
-<svg width="200" height="200" style="background-color:antiquewhite">
-    <circle cx="100" cy="100" r="95" stroke="black" stroke-width="3" fill="none" />
-    <circle id="Br1" cx="100" cy="40" r="25" stroke="black" stroke-width="3" fill="gray" onclick="identifierChambre(1)" />
-    <circle id="Br2" cx="150" cy="70" r="25" stroke="black" stroke-width="3" fill="gray" onclick="identifierChambre(2)" />
-    <circle id="Br3" cx="50" cy="70" r="25" stroke="black" stroke-width="3" fill="gray" onclick="identifierChambre(3)" />
-    <circle id="Br4" cx="50" cy="130" r="25" stroke="black" stroke-width="3" fill="gray" onclick="identifierChambre(4)" />
-    <circle id="Br5" cx="150" cy="130" r="25" stroke="black" stroke-width="3" fill="gray" onclick="identifierChambre(5)" />
-    <circle id="Br6" cx="100" cy="160" r="25" stroke="black" stroke-width="3" fill="gray" onclick="identifierChambre(6)" />
-    <circle cx="100" cy="100" r="10" stroke="black" stroke-width="3" fill="black" />
+<svg width=200 height=200 style="background-color:antiquewhite">
+<circle cx="100" cy="100" r="95" stroke="black" stroke-width="3" fill="none" />
+<circle onclick="trou1()" id="Br1" cx="100" cy="40" r="25" stroke="black" stroke-width="3" fill="gray" />
+<circle onclick="trou2()" id="Br2" cx="150" cy="70" r="25" stroke="black" stroke-width="3" fill="gray" />
+<circle onclick="trou6()" id="Br6" cx="50" cy="70" r="25" stroke="black" stroke-width="3" fill="gray" />
+<circle onclick="trou5()" id="Br5" cx="50" cy="130" r="25" stroke="black" stroke-width="3" fill="gray" />
+<circle onclick="trou3()" id="Br3" cx="150" cy="130" r="25" stroke="black" stroke-width="3" fill="gray" />
+<circle onclick="trou4()" id="Br4" cx="100" cy="160" r="25" stroke="black" stroke-width="3" fill="gray" />
+<circle cx="100" cy="100" r="10" stroke="black" stroke-width="3" fill="black" />
 </svg>
+
+<button onclick="lancer()">Jouer</button>
 
 </body>
 </html>
