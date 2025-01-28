@@ -53,6 +53,7 @@ function jouer() {
     const chambre = document.getElementById("Br" + chiffreAleatoire);
     if (chambre.style.fill === "red") {
         alert("La chambre " + chiffreAleatoire + " est rouge - Vous avez perdu !");
+        totalGains = 0;
     } else {
         let gain = 0;
         if (ballesPlacees === 1) {
