@@ -46,12 +46,16 @@ function resetBarillet() {
 
 function jouer() {
     const chiffreAleatoire = Math.floor(Math.random() * 6) + 1;
+    const chambre = document.getElementById("Br" + chiffreAleatoire);
+    if (chambre.style.fill === "red") {
+        alert("La chambre " + chiffreAleatoire + " est rouge - Vous avez perdu !");
+    } else {
+        alert("La chambre " + chiffreAleatoire + " est grise - Vous avez gagné !");
+    }
     for (let i = 1; i <= 6; i++) {
         if (document.getElementById("Br" + i).style.fill !== "red") {
             document.getElementById("Br" + i).style.fill = "gray";
         }
-    }
-    document.getElementById("Br" + chiffreAleatoire).style.fill = "blue";
 }
 </script>
 </head>
