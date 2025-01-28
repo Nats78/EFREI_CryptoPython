@@ -29,6 +29,7 @@
 <script>
 let ballesPlacees = 0;
 let gains = 0;
+let totalGains = 0;
 
 function placerBalle(numero) {
     const chambre = document.getElementById("Br" + numero);
@@ -44,23 +45,13 @@ function placerBalle(numero) {
     ballesPlacees++;
 }
 
-function resetBarillet() {
-    for (let i = 1; i <= 6; i++) {
-        if (document.getElementById("Br" + i).style.fill !== "red") {
-            document.getElementById("Br" + i).style.fill = "gray";
-        }
-    }
-    ballesPlacees = 0;
-    alert("Le barillet a été réinitialisé !");
-}
-
 function jouer() {
     const chiffreAleatoire = Math.floor(Math.random() * 6) + 1;
-
     const chambre = document.getElementById("Br" + chiffreAleatoire);
+
     if (chambre.style.fill === "red") {
         alert("La chambre " + chiffreAleatoire + " est rouge - Vous avez perdu !");
-        totalGains = 0;
+        totalGains = 0; // Perdre tous les gains en cas de défaite
     } else {
         let gain = 0;
         if (ballesPlacees === 1) {
@@ -70,8 +61,8 @@ function jouer() {
         } else if (ballesPlacees === 3) {
             gain = 1000000;
         }
-        gains += gain;
-        alert("La chambre " + chiffreAleatoire + " est grise - Vous avez gagné !\nVos gains : " + gain + "€\nTotal des gains : " + gains + "€");
+        totalGains += gain;
+        alert("La chambre " + chiffreAleatoire + " est grise - Vous avez gagné !\nVos gains : " + gain + "€\nTotal des gains : " + totalGains + "€");
     }
 
     for (let i = 1; i <= 6; i++) {
@@ -84,8 +75,17 @@ function jouer() {
 }
 
 function rejouer() {
-    ballesPlacees = 0;
-    alert("Vous avez choisi de rejouer !\nTotal des gains : " + gains + "€");
+    if (totalGains > 0) {
+        let confirmer = confirm("Vous avez un total de " + totalGains + "€. Si vous rejouez, vous pouvez tout perdre. Voulez-vous vraiment continuer ?");
+        if (confirmer) {
+            ballesPlacees = 0;
+            alert("Vous avez choisi de rejouer !");
+        } else {
+            alert("Vous avez choisi de ne pas rejouer. Vos gains sont sécurisés : " + totalGains + "€.");
+        }
+    } else {
+        alert("Vous n'avez pas encore gagné !");
+    }
 }
 </script>
 </head>
@@ -103,7 +103,6 @@ function rejouer() {
     <circle cx="100" cy="100" r="10" stroke="black" stroke-width="3" fill="black" />
 </svg>
 
-<button onclick="resetBarillet()">Réinitialiser le Barillet</button>
 <button onclick="jouer()">Jouer</button>
 <button onclick="rejouer()">Rejouer</button>
 </body>
