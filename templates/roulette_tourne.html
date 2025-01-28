@@ -43,10 +43,18 @@ function resetBarillet() {
     ballesPlacees = 0;
     alert("Le barillet a été réinitialisé !");
 }
+
+function jouer() {
+    const chiffreAleatoire = Math.floor(Math.random() * 6) + 1;
+    for (let i = 1; i <= 6; i++) {
+        document.getElementById("Br" + i).style.fill = "gray";
+    }
+    document.getElementById("Br" + chiffreAleatoire).style.fill = "blue";
+}
 </script>
 </head>
 <body>
-<h1>Roulette Russe - Placer des Balles</h1>
+<h1>Roulette Russe</h1>
 
 <svg width="200" height="200" style="background-color:antiquewhite">
     <circle cx="100" cy="100" r="95" stroke="black" stroke-width="3" fill="none" />
