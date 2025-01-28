@@ -28,7 +28,6 @@
 </style>
 <script>
 let ballesPlacees = 0;
-let gains = 0;
 let totalGains = 0;
 
 function placerBalle(numero) {
@@ -51,7 +50,7 @@ function jouer() {
 
     if (chambre.style.fill === "red") {
         alert("La chambre " + chiffreAleatoire + " est rouge - Vous avez perdu !");
-        totalGains = 0; // Perdre tous les gains en cas de défaite
+        totalGains = 0;
     } else {
         let gain = 0;
         if (ballesPlacees === 1) {
