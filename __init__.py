@@ -28,6 +28,10 @@ def Bibliotheque_images():
 @app.route('/jeu_de_roulette')
 def  jeu_de_roulette():
     return render_template('jeu_de_roulette.html')
+
+@app.route('/roulette_tourne')
+def  roulette_tourne():
+    return render_template('roulette_tourne.html')
     
 # Génération de la clé pour le chiffrement/déchiffrement
 key = Fernet.generate_key()
