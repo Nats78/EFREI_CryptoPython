@@ -1,41 +1,65 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<script>
-function lancer() {
-    const chiffreAleatoire = Math.floor(Math.random() * 6) + 1;
-    alert("Chiffre aléatoire : " + chiffreAleatoire);
-}
-
-function selectionnerChambre(numero) {
-    alert("Vous avez sélectionné la chambre N°" + numero);
-    document.getElementById("Br" + numero).style.fill = "red";
-}
-    function lancer() {
-    const chiffreAleatoire = Math.floor(Math.random() * 6) + 1;
-    if (document.getElementById("Br" + chiffreAleatoire).style.fill === "red") {
-        alert("Le chiffre aléatoire est : " + chiffreAleatoire + " - Perdu !");
-    } else {
-        alert("Le chiffre aléatoire est : " + chiffreAleatoire + " - Gagné !");
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roulette Russe - Placer des Balles</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
     }
+    svg {
+        margin: 20px 0;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+<script>
+let ballesPlacees = 0;
+
+function placerBalle(numero) {
+    const chambre = document.getElementById("Br" + numero);
+    if (chambre.style.fill === "red") {
+        alert("Cette chambre contient déjà une balle !");
+        return;
+    }
+    if (ballesPlacees >= 3) {
+        alert("Vous ne pouvez placer que 3 balles maximum !");
+        return;
+    }
+    chambre.style.fill = "red";
+    ballesPlacees++;
 }
 
+function resetBarillet() {
+    for (let i = 1; i <= 6; i++) {
+        document.getElementById("Br" + i).style.fill = "gray";
+    }
+    ballesPlacees = 0;
+    alert("Le barillet a été réinitialisé !");
+}
 </script>
 </head>
 <body>
-<h1>Roulette Russe</h1>
+<h1>Roulette Russe - Placer des Balles</h1>
 
 <svg width="200" height="200" style="background-color:antiquewhite">
     <circle cx="100" cy="100" r="95" stroke="black" stroke-width="3" fill="none" />
-    <circle onclick="selectionnerChambre(1)" id="Br1" cx="100" cy="40" r="25" stroke="black" stroke-width="3" fill="gray" />
-    <circle onclick="selectionnerChambre(2)" id="Br2" cx="150" cy="70" r="25" stroke="black" stroke-width="3" fill="gray" />
-    <circle onclick="selectionnerChambre(6)" id="Br6" cx="50" cy="70" r="25" stroke="black" stroke-width="3" fill="gray" />
-    <circle onclick="selectionnerChambre(5)" id="Br5" cx="50" cy="130" r="25" stroke="black" stroke-width="3" fill="gray" />
-    <circle onclick="selectionnerChambre(3)" id="Br3" cx="150" cy="130" r="25" stroke="black" stroke-width="3" fill="gray" />
-    <circle onclick="selectionnerChambre(4)" id="Br4" cx="100" cy="160" r="25" stroke="black" stroke-width="3" fill="gray" />
+    <circle onclick="placerBalle(1)" id="Br1" cx="100" cy="40" r="25" stroke="black" stroke-width="3" fill="gray" />
+    <circle onclick="placerBalle(2)" id="Br2" cx="150" cy="70" r="25" stroke="black" stroke-width="3" fill="gray" />
+    <circle onclick="placerBalle(3)" id="Br3" cx="150" cy="130" r="25" stroke="black" stroke-width="3" fill="gray" />
+    <circle onclick="placerBalle(4)" id="Br4" cx="100" cy="160" r="25" stroke="black" stroke-width="3" fill="gray" />
+    <circle onclick="placerBalle(5)" id="Br5" cx="50" cy="130" r="25" stroke="black" stroke-width="3" fill="gray" />
+    <circle onclick="placerBalle(6)" id="Br6" cx="50" cy="70" r="25" stroke="black" stroke-width="3" fill="gray" />
     <circle cx="100" cy="100" r="10" stroke="black" stroke-width="3" fill="black" />
 </svg>
 
-<button onclick="lancer()">Jouer</button>
+<button onclick="resetBarillet()">Réinitialiser le Barillet</button>
 
 </body>
 </html>
