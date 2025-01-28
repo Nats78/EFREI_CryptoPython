@@ -1,21 +1,23 @@
 <html>
 <head>
     <script>
-        function lancer() {
-            alert("Le barillet tourne");
-        }
+function lancer() {
+    const chiffreAleatoire = Math.floor(Math.random() * 6) + 1;
+    if (document.getElementById("Br" + chiffreAleatoire).style.fill === "red") {
+        alert("Le chiffre aléatoire est : " + chiffreAleatoire + " - Perdu !");
+    } else {
+        alert("Le chiffre aléatoire est : " + chiffreAleatoire + " - Gagné !");
+    }
+}
 
-        function chambre(num) {
-            const chambreId = "Br" + num;
-            const chambreElement = document.getElementById(chambreId);
-            alert("Chambre" + num);
-            chambreElement.style.fill = "red";
-        }
-        function lancer() {
-            const chiffreAleatoire = Math.floor(Math.random() * 6) + 1;
-            alert("Chiffre aléatoire : " + chiffreAleatoire);
-        }
-
+function selectionnerChambre(numero) {
+    if (chambreSelectionnee !== null) {
+        document.getElementById("Br" + chambreSelectionnee).style.fill = "gray";
+    }
+    chambreSelectionnee = numero;
+    alert("Vous avez sélectionné la chambre N°" + numero);
+    document.getElementById("Br" + numero).style.fill = "red";
+}
     </script>
 </head>
 <body>
